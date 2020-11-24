@@ -6,24 +6,13 @@ Created on Sun Nov 22 00:15:12 2020
 @author: chenxidong
 """
 
-import os
-os.chdir('/Users/chenxidong/Desktop/6004 Market Segmentation/')
 import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt # drawing graphs
-from sklearn.tree import DecisionTreeClassifier # a classification tree
-from sklearn.tree import plot_tree # draw a classification tree
 from sklearn.model_selection import cross_val_score # cross validation
 from sklearn.svm import SVC
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split 
-from sklearn.metrics import plot_confusion_matrix, plot_roc_curve, plot_precision_recall_curve
-from sklearn.metrics import precision_score, recall_score 
-
-
 import seaborn as sns
 from scipy.spatial import distance_matrix
 from sklearn.preprocessing import StandardScaler, normalize
@@ -41,7 +30,7 @@ def main():
     #simpply use the cache last time unlesss the input changed
 
     def load_data():
-        data=pd.read_csv('/Users/chenxidong/Desktop/6004 Market Segmentation/marketing_data.csv')
+        data=pd.read_csv('marketing_data.csv')
         # Fill up the missing elements with mean of the 'MINIMUM_PAYMENT' 
         data.loc[(data['MINIMUM_PAYMENTS'].isnull() == True), 'MINIMUM_PAYMENTS'] = data['MINIMUM_PAYMENTS'].mean()
         # Fill up the missing elements with mean of the 'CREDIT_LIMIT' 
